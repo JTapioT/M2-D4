@@ -1,6 +1,5 @@
 generateTeams = function() {
   let generateTeamsBtn = document.querySelector(".generateTeamsBtn");
-  console.log(generateTeamsBtn);
   let textArea = document.querySelector(".form-control");
   let teamInputAmount = document.querySelector("#inputGroupSelect");
 
@@ -46,10 +45,9 @@ generateTeams = function() {
     let containerElement = document.createElement('div');
     containerElement.classList.add('container');
     containerElement.classList.add('teamContainer');
-
     document.body.appendChild(containerElement);
 
-    
+
     for(let i=0; i<teams.length; i++) {
       let teamHeader = document.createElement("h4");
       // Append Header before row:
@@ -77,7 +75,6 @@ generateTeams = function() {
     teamInputAmount.value = "Choose amount of teams";
 
     let teamContainer = document.querySelector(".teamContainer");
-    console.log(teamContainer);
     teamContainer.remove();
   }
 
