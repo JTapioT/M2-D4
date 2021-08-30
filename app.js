@@ -33,13 +33,16 @@ generateTeams = function() {
       isNonEvenTeams = true;
       teamMaxPlayers = Math.floor(playersTotal.length / teamsTotal);
     }
-    //teamMaxPlayers = playersTotal.length / teamsTotal;
+    console.log(teamMaxPlayers);
+
 
     // Teams: Array of sub-arrays (teams) which contain players of the team:
     let teams = [];
     for(let i = 0; i<teamsTotal; i++) {
       teams.push([]);
     }
+
+    console.log(teams.length);
 
 
     // Assign players to teams randomly
@@ -51,38 +54,15 @@ generateTeams = function() {
       // Inner-loop below will assign players to teams until they are filled
       // Hence, last player will always be left out of even teams
       // Randomly just add last player to some team:
-      if(isNonEvenTeams && i === (playersTotal[i].length -1)) {
+      if(isNonEvenTeams && i === (playersTotal.length -1)) {
         let randomTeam = Math.floor(Math.random() * teams.length);
         teams[randomTeam].push(playersTotal[i]);
         break;
       }
 
-      
-      
-   /*    let isTeamsEvenlyAssigned;
-      for (m = 0; m < teams.length; m++) {
-        if (m === teams.length - 1) {
-          if (teams[m].length === teams[m - 1].length) {
-            isTeamsEvenlyAssigned = true;
-            break;
-          } else {
-            isTeamsEvenlyAssigned = false;
-            break;
-          }
-        } else {
-          if (teams[m].length === teams[m + 1].length) {
-            isTeamsEvenlyAssigned = true;
-            continue;
-          } else {
-            isTeamsEvenlyAssigned = false;
-            continue;
-          }
-        }
-      } */
-
+  
       for(let k = 0;; k++) {
         let randomTeam = Math.floor(Math.random() * teams.length);
-
         if(teams[randomTeam].length < teamMaxPlayers) {
           teams[randomTeam].push(playersTotal[i]);
           break;
